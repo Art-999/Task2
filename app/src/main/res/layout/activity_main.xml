@@ -12,13 +12,14 @@
         android:layout_height="match_parent"
         android:background="#ccffff" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-    <include layout="@layout/support_simple_spinner_dropdown_item">
-
+    <!--<ProgressBar-->
+        <!--android:id="@+id/progress_bar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone" />-->
+    <include layout="@layout/progress_include_layout"
+        android:id="@+id/progress_include_layout"
+        android:visibility="gone">
     </include>
 
     <Button

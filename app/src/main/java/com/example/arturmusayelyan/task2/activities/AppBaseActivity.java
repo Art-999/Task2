@@ -15,6 +15,7 @@ public class AppBaseActivity extends AppCompatActivity implements View.OnClickLi
     private Button button;
     private ProgressBar progressBar;
     private RelativeLayout mainLayout;
+    private View view;
 
     public void addButton(Button button) {
         this.button = button;
@@ -29,6 +30,18 @@ public class AppBaseActivity extends AppCompatActivity implements View.OnClickLi
         this.mainLayout = mainLayout;
     }
 
+    public void addProgressIncludeLayout(View view) {
+        this.view = view;
+    }
+
+    public void showProgressIncludeLayout() {
+        view.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressIncludeLayout() {
+        view.setVisibility(View.VISIBLE);
+    }
+
     public void showProgressBar() {
         //mainLayout.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
@@ -41,6 +54,7 @@ public class AppBaseActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        showProgressBar();
+        //showProgressBar();
+        showProgressIncludeLayout();
     }
 }
