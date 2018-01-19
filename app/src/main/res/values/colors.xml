@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="splashColor">#99ff99</color>
+    <color name="orange">#f6b167</color>
+    <color name="default_text_color">#555577</color>
+    <color name="bottom_navigation_item_selected">#f7b267</color>
 </resources>
