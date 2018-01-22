@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.example.arturmusayelyan.task2.R;
 import com.example.arturmusayelyan.task2.bookieMyExample.fragments.WelcomeFragment;
+import com.example.arturmusayelyan.task2.bookieMyExample.views.Loader;
 
 public class MainActivity extends AppBaseActivity {
 
@@ -17,6 +18,9 @@ public class MainActivity extends AppBaseActivity {
 //        addButton(button);
 //        RelativeLayout mainLayout = findViewById(R.id.main_activity_layout);
 //        addMainLayout(mainLayout);
+
+        Loader loader = (Loader)findViewById(R.id.welcome_loader);
+        addLoader(loader);
 
         View view = findViewById(R.id.progress_include_layout);
         addProgressIncludeLayout(view);

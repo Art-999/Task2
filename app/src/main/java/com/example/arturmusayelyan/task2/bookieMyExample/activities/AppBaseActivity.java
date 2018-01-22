@@ -1,6 +1,8 @@
 package com.example.arturmusayelyan.task2.bookieMyExample.activities;
 
 import android.os.SystemClock;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.arturmusayelyan.task2.R;
+import com.example.arturmusayelyan.task2.bookieMyExample.views.Loader;
 
 /**
  * Created by artur.musayelyan on 18/01/2018.
@@ -22,6 +25,23 @@ public class AppBaseActivity extends AppCompatActivity implements View.OnClickLi
     private ProgressBar progressBar;
     private RelativeLayout mainLayout;
     private View view;
+    private BottomNavigationView bottomNavigationView;
+    private FloatingActionButton floatingActionButton;
+    private Loader loader;
+
+    public void addLoader(Loader loader) {
+        this.loader = loader;
+    }
+
+    public void showLoader() {
+        loader.start();
+        loader.setVisibility(View.VISIBLE);
+    }
+
+    public void endLoader() {
+        loader.end();
+        loader.setVisibility(View.GONE);
+    }
 
     public void addButton(Button button) {
         this.button = button;
@@ -73,11 +93,43 @@ public class AppBaseActivity extends AppCompatActivity implements View.OnClickLi
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         if (addToBackStack) {
-            transaction.add(R.id.container_in_main_layout, fragment);
+            transaction.add(R.id.container, fragment);
             transaction.addToBackStack(fragment.getClass().getSimpleName());
         } else {
-            transaction.replace(R.id.container_in_main_layout, fragment);
+            transaction.replace(R.id.container, fragment);
         }
         transaction.commit();
+    }
+
+    public void addBottomNavigationView(BottomNavigationView bottomNavigationView) {
+        this.bottomNavigationView = bottomNavigationView;
+    }
+
+    public void showBottomNavigationView() {
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void hideBottomNavigationView() {
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setVisibility(View.GONE);
+        }
+    }
+
+    public void addFloatingButton(FloatingActionButton floatingActionButton) {
+        this.floatingActionButton = floatingActionButton;
+    }
+
+    public void showFloatingButton() {
+        if (floatingActionButton != null) {
+            floatingActionButton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void hideFloatingButton() {
+        if (floatingActionButton != null) {
+            floatingActionButton.setVisibility(View.GONE);
+        }
     }
 }

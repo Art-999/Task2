@@ -19,7 +19,8 @@
             android:theme="@style/AppNameMainActivity">
 
         </activity>
-        <activity android:name=".bookieMyExample.activities.LobbyActivity"
+        <activity
+            android:name=".bookieMyExample.activities.LobbyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLobbyActivity"
             android:windowSoftInputMode="adjustNothing">

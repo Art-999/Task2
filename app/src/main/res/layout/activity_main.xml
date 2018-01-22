@@ -8,24 +8,21 @@
 
 
     <FrameLayout
-        android:id="@+id/container_in_main_layout"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ccffff" />
 
-
-    <!--<Button-->
-        <!--android:id="@+id/progress_start_button"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:text="progress" />-->
+    <com.example.arturmusayelyan.task2.bookieMyExample.views.Loader
+        android:id="@+id/welcome_loader"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <include
         android:id="@+id/progress_include_layout"
         layout="@layout/progress_include_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"></include>
+        android:visibility="gone" />
 </RelativeLayout>
