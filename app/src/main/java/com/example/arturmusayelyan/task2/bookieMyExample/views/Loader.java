@@ -57,11 +57,12 @@ public class Loader extends RelativeLayout {
         circleLoader.startAnimation(animRotLeft);
         rot();
     }
-    public void end(){
-        if(!isStarting){
+
+    public void end() {
+        if (!isStarting) {
             return;
         }
-        isStarting=false;
+        isStarting = false;
         animRotLeft.cancel();
         animate().alpha(0f).setDuration(ANIM_DURATION).setListener(new AnimatorListenerAdapter() {
             @Override
