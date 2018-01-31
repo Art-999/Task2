@@ -14,19 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bookieMyExample.activities.MainActivity"
+        <activity
+            android:name=".bookieMyExample.activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppNameMainActivity">
-
-        </activity>
+            android:theme="@style/AppNameMainActivity"></activity>
         <activity
             android:name=".bookieMyExample.activities.LobbyActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeLobbyActivity"
-            android:windowSoftInputMode="adjustNothing">
-
-        </activity>
-        <activity android:name=".bookieMyExample.activities.SplashActivity"
+            android:windowSoftInputMode="adjustNothing"></activity>
+        <activity
+            android:name=".bookieMyExample.activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeSplash">
             <intent-filter>
@@ -35,6 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".bookieMyExample.activities.SignInActivity"></activity>
     </application>
 
 </manifest>
