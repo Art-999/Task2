@@ -1,5 +1,7 @@
 package com.example.arturmusayelyan.task2.bookieMyExample.activities;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.SystemClock;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -7,13 +9,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.example.arturmusayelyan.task2.R;
+import com.example.arturmusayelyan.task2.bookieMyExample.controllers.MyApplication;
 import com.example.arturmusayelyan.task2.bookieMyExample.views.Loader;
+
+import java.util.Locale;
 
 /**
  * Created by artur.musayelyan on 18/01/2018.
@@ -99,6 +105,39 @@ public class AppBaseActivity extends AppCompatActivity implements View.OnClickLi
             transaction.replace(R.id.container, fragment);
         }
         transaction.commit();
+    }
+
+    public void backToHomeScreen() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int backStackCount = getSupportFragmentManager().getBackStackEntryCount();
+        for (int i = 0; i < backStackCount; i++) {
+            // Get the back stack fragment id.
+            int backStackId = getSupportFragmentManager().getBackStackEntryAt(i).getId();
+
+            fragmentManager.popBackStack(backStackId, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+    }
+
+    public void setLocale(String localeKey) {
+        Locale locale;
+        switch (localeKey) {
+            case "zh-rCN":
+                locale = Locale.SIMPLIFIED_CHINESE;
+                break;
+            case "zh-rTW":
+                locale = Locale.TRADITIONAL_CHINESE;
+                break;
+            default:
+                locale = new Locale(localeKey);
+                break;
+        }
+//        locale = new Locale(localeKey);
+        MyApplication.setLocale(locale);
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        configuration.locale = locale;
+        resources.updateConfiguration(configuration, displayMetrics);
     }
 
     public void addBottomNavigationView(BottomNavigationView bottomNavigationView) {
